@@ -1,0 +1,57 @@
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  top: 802px;
+  z-index: 3;
+  width: 188px;
+  height: 188px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(248, 247, 255, 0.08);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(248, 247, 255, 0.12);
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: 134px;
+    height: 134px;
+  }
+
+  &::after {
+    width: 222px;
+    height: 222px;
+    opacity: 0.55;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    border-color: rgba(74, 160, 222, 0.5);
+  }
+}
+
+.scroll-down__circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: $color-blue;
+}
+
+.scroll-down__icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: $bp-mobile) {
+  .scroll-down {
+    top: 682px;
+  }
+}

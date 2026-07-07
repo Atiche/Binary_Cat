@@ -1,0 +1,37 @@
+.button,
+.wpcf7-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 261px;
+  height: 64px;
+  padding: 0 48px;
+  border: 0;
+  border-radius: 48px;
+  background: $color-blue;
+  color: $color-white;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: $color-blue-hover;
+    box-shadow: 0 0 0 12px rgba(74, 160, 222, 0.08), 0 0 0 24px rgba(74, 160, 222, 0.05);
+    outline: 1px solid rgba(74, 160, 222, 0.25);
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .button,
+  .wpcf7-submit {
+    width: 359px;
+    max-width: 100%;
+    height: 48px;
+  }
+}

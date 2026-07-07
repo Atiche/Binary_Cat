@@ -1,0 +1,14 @@
+{
+  "name": "vk-smart-service-theme",
+  "version": "1.0.0",
+  "description": "VkSmartService WordPress theme",
+  "scripts": {
+    "build:css": "sass assets/scss/main.scss assets/css/main.css --style=expanded",
+    "watch:css": "sass --watch assets/scss/main.scss:assets/css/main.css --style=expanded",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  },
+  "license": "GPL-2.0-or-later"
+}

@@ -1,0 +1,84 @@
+.service-card {
+  position: absolute;
+  width: 387px;
+}
+
+.service-card__media {
+  width: 387px;
+  height: 226px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.service-card__icon {
+  position: absolute;
+  top: 178px;
+  right: 32px;
+  z-index: 2;
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: $color-white;
+  box-shadow: 0 0 0 45px rgba(74, 160, 222, 0.06), $shadow-blue;
+
+  img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+  }
+}
+
+.service-card__icon--consulting img {
+  width: 64px;
+  height: 64px;
+}
+
+.service-card__title {
+  width: 240px;
+  margin-top: 24px;
+  color: $color-text;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.service-card__text {
+  width: 387px;
+  margin-top: 16px;
+  color: $color-copy;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (max-width: $bp-mobile) {
+  .service-card {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    width: 359px;
+  }
+
+  .service-card__media {
+    width: 359px;
+    height: 226px;
+  }
+
+  .service-card__icon {
+    top: 178px;
+    right: 24px;
+  }
+
+  .service-card__title {
+    margin-top: 24px;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .service-card__text {
+    width: 359px;
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}

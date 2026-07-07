@@ -1,0 +1,32 @@
+.contact-form,
+.contact-form__fallback,
+.wpcf7-form {
+  display: grid;
+  gap: 24px;
+}
+
+.contact-form__submit,
+.wpcf7-submit {
+  justify-self: end;
+  margin-top: -88px;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: 0;
+  border-radius: 12px;
+}
+
+@media (max-width: $bp-mobile) {
+  .contact-form,
+  .contact-form__fallback,
+  .wpcf7-form {
+    gap: 16px;
+  }
+
+  .contact-form__submit,
+  .wpcf7-submit {
+    justify-self: start;
+    margin-top: 0;
+    width: 311px;
+  }
+}

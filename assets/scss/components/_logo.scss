@@ -1,0 +1,33 @@
+.logo {
+  display: inline-block;
+  flex: 0 0 auto;
+  text-decoration: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.logo--header {
+  width: 231px;
+  height: 78px;
+}
+
+.logo--footer {
+  width: 285px;
+  height: 96px;
+}
+
+@media (max-width: $bp-mobile) {
+  .logo--header {
+    width: 172px;
+    height: 58px;
+  }
+
+  .logo--footer {
+    width: 184px;
+    height: 62px;
+  }
+}

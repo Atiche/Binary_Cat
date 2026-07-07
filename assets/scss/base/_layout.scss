@@ -1,0 +1,18 @@
+.site-wrapper {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: $color-white;
+}
+
+.container {
+  width: min(100%, #{$container-width});
+  margin: 0 auto;
+
+  @media (max-width: $bp-mobile) {
+    width: calc(100% - 16px);
+  }
+}
+
+.page-content {
+  padding: 120px 0;
+}
