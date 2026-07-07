@@ -1,14 +1,16 @@
+@use "../../abstracts" as *;
+
 .hero {
   position: relative;
-  height: 896px;
+  min-height: 56rem;
   color: $color-white;
   text-align: center;
-  overflow: hidden;
 }
 
 .hero__bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 
   img {
     width: 100%;
@@ -28,33 +30,33 @@
 
 .hero__inner {
   position: relative;
-  z-index: 1;
+  z-index: $z-content;
   display: grid;
   justify-items: center;
-  padding-top: 272px;
+  padding-top: 17rem;
 }
 
 .hero__title {
-  width: 1200px;
+  width: min(100%, 75rem);
   color: $color-white;
-  font-size: 48px;
+  font-size: clamp(2.5rem, 2.5vw, 3rem);
   line-height: 1.4;
 }
 
 .hero__subtitle {
-  width: 997px;
-  margin-top: 22px;
-  font-size: 24px;
-  line-height: 32px;
+  width: min(100%, 62.3125rem);
+  margin-top: 1.375rem;
+  font-size: 1.5rem;
+  line-height: 1.333;
 }
 
 .hero .button {
-  margin-top: 32px;
+  margin-top: 2rem;
 }
 
-@media (max-width: $bp-mobile) {
+@include mobile {
   .hero {
-    height: 776px;
+    min-height: 48.5rem;
     text-align: left;
   }
 
@@ -67,25 +69,22 @@
   }
 
   .hero__inner {
-    width: 359px;
     justify-items: start;
-    padding-top: 320px;
+    padding-top: 20rem;
   }
 
   .hero__title {
-    width: 359px;
-    font-size: 28px;
+    font-size: 1.75rem;
     line-height: 1.2;
   }
 
   .hero__subtitle {
-    width: 359px;
-    margin-top: 18px;
-    font-size: 16px;
+    margin-top: 1.125rem;
+    font-size: 1rem;
     line-height: 1.4;
   }
 
   .hero .button {
-    margin-top: 28px;
+    margin-top: 1.75rem;
   }
 }

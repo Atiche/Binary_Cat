@@ -1,0 +1,185 @@
+@use "../abstracts" as *;
+
+@keyframes float-in-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-cascade-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes button-rings {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes circle-rings {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes button-shadow-rings {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(74, 160, 222, 0.26),
+      0 0 0 0 rgba(74, 160, 222, 0.18);
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 0.75rem rgba(74, 160, 222, 0.12),
+      0 0 0 1.5rem rgba(74, 160, 222, 0.07);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 1rem rgba(74, 160, 222, 0),
+      0 0 0 2rem rgba(74, 160, 222, 0);
+  }
+}
+
+a,
+button,
+input,
+textarea,
+select,
+.logo,
+.service-card,
+.advantage-item,
+.site-footer__contact-item,
+.checkbox__box {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: $color-blue;
+}
+
+.logo:hover,
+.logo:focus-visible,
+.service-card:hover,
+.advantage-item:hover {
+  transform: translateY(-0.25rem);
+}
+
+.hero.motion-ready .hero__title,
+.hero.motion-ready .hero__subtitle,
+.hero.motion-ready .button {
+  opacity: 0;
+}
+
+.hero.is-visible .hero__title,
+.hero.is-visible .hero__subtitle,
+.hero.is-visible .button {
+  animation: hero-cascade-in 0.7s ease both;
+}
+
+.hero.is-visible .hero__title {
+  animation-delay: 0.15s;
+}
+
+.hero.is-visible .hero__subtitle {
+  animation-delay: 0.35s;
+}
+
+.hero.is-visible .button {
+  animation-delay: 0.55s;
+}
+
+.intro.motion-ready,
+.about.motion-ready,
+.advantages.motion-ready,
+.yandex-map.motion-ready,
+.site-footer.motion-ready {
+  opacity: 0;
+  transform: translateY(-2rem);
+}
+
+.intro.is-visible,
+.about.is-visible,
+.advantages.is-visible,
+.yandex-map.is-visible,
+.site-footer.is-visible {
+  animation: float-in-from-top 0.75s ease both;
+}
+
+.services.motion-ready .service-card {
+  opacity: 0;
+}
+
+.services.is-visible .service-card {
+  animation: hero-cascade-in 0.65s ease both;
+}
+
+.services.is-visible .service-card--primary {
+  animation-delay: 0.15s;
+}
+
+.services.is-visible .service-card--secondary {
+  animation-delay: 0.3s;
+}
+
+.services.is-visible .service-card--tertiary {
+  animation-delay: 0.45s;
+}
+
+.services.is-visible .service-card--quaternary {
+  animation-delay: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+  }
+}

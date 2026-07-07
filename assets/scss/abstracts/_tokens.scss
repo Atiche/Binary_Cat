@@ -1,0 +1,36 @@
+$color-text: #100f0d;
+$color-muted: rgba(16, 15, 13, 0.5);
+$color-copy: #333333;
+$color-blue: #4aa0de;
+$color-blue-hover: #17a8e3;
+$color-blue-soft: rgba(74, 160, 222, 0.5);
+$color-panel: #f8f7ff;
+$color-white: #ffffff;
+$color-black: #000000;
+
+$font-family-base: "Suisse Intl", "Arial", sans-serif;
+
+$container-desktop: 75rem;
+$container-mobile: calc(100% - 1rem);
+$bp-mobile: 37.5rem;
+
+$radius-sm: 0.125rem;
+$radius-md: 1rem;
+$radius-lg: 1.5rem;
+$radius-xl: 3rem;
+$radius-pill: 999rem;
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+
+$shadow-blue: 0 0.25rem 0.5rem rgba(74, 160, 222, 0.2);
+$z-header: 10;
+$z-content: 1;

@@ -1,6 +1,19 @@
+@use "../../abstracts" as *;
+
 .yandex-map iframe,
 .yandex-map__placeholder {
   width: 100%;
-  height: 360px;
+  min-height: 22.5rem;
   border: 0;
+}
+
+.yandex-map {
+  background: $color-panel;
+}
+
+@include mobile {
+  .yandex-map iframe,
+  .yandex-map__placeholder {
+    min-height: 18.75rem;
+  }
 }

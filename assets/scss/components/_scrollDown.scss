@@ -1,57 +1,67 @@
+@use "../abstracts" as *;
+
 .scroll-down {
   position: absolute;
   left: 50%;
-  top: 802px;
-  z-index: 3;
-  width: 188px;
-  height: 188px;
-  transform: translateX(-50%);
-  border: 1px solid rgba(248, 247, 255, 0.08);
-  border-radius: 50%;
+  bottom: 0;
   display: grid;
   place-items: center;
+  width: 11.75rem;
+  aspect-ratio: 1;
+  color: $color-white;
+  transform: translate(-50%, 50%);
   text-decoration: none;
+  z-index: $z-content;
 
   &::before,
   &::after {
     content: "";
     position: absolute;
-    border: 1px solid rgba(248, 247, 255, 0.12);
     border-radius: 50%;
+    border: 0.0625rem solid rgba(74, 160, 222, 0.12);
+    opacity: 1;
+    transition: border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
   }
 
   &::before {
-    width: 134px;
-    height: 134px;
+    width: 8.375rem;
+    aspect-ratio: 1;
   }
 
   &::after {
-    width: 222px;
-    height: 222px;
-    opacity: 0.55;
+    width: 13.875rem;
+    aspect-ratio: 1;
   }
 
   &:hover::before,
-  &:hover::after {
-    border-color: rgba(74, 160, 222, 0.5);
+  &:focus-visible::before {
+    border-color: rgba(74, 160, 222, 0.75);
+    animation: circle-rings 1.15s ease-out infinite;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    border-color: rgba(74, 160, 222, 0.45);
+    animation: circle-rings 1.15s ease-out 0.2s infinite;
   }
 }
 
 .scroll-down__circle {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  aspect-ratio: 1;
   border-radius: 50%;
   background: $color-blue;
+  box-shadow: $shadow-blue;
 }
 
 .scroll-down__icon {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  aspect-ratio: 1;
 }
 
-@media (max-width: $bp-mobile) {
+@include mobile {
   .scroll-down {
-    top: 682px;
+    width: 11.75rem;
   }
 }

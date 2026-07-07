@@ -3,11 +3,15 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 
-$variant = isset($variant) ? $variant : 'header';
+$args = wp_parse_args(isset($args) ? $args : array(), array(
+	'variant' => 'header',
+	'logo' => '',
+));
+$variant = $args['variant'];
 $defaultLogo = $variant === 'footer'
-	? getThemeAssetUri('svg/logo/vk-smart-service-footer.svg')
-	: getThemeAssetUri('svg/logo/vk-smart-service-header.svg');
-$logo = isset($logo) ? $logo : getThemeField('headerLogo', $defaultLogo, 'option');
+	? getThemeAsset('logo.footer')
+	: getThemeAsset('logo.header');
+$logo = $args['logo'] !== '' ? $args['logo'] : getThemeField('headerLogo', $defaultLogo, 'option');
 ?>
 <a class="logo logo--<?php echo esc_attr($variant); ?>" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('VK Smart Service', 'vk-smart-service'); ?>">
 	<?php if (is_array($logo) || is_numeric($logo)) : ?>

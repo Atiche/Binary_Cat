@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 *,
 *::before,
 *::after {
@@ -9,8 +11,8 @@ html {
 }
 
 body {
+  min-width: 20rem;
   margin: 0;
-  min-width: 320px;
   background: $color-white;
   color: $color-text;
   font-family: $font-family-base;

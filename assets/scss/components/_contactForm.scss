@@ -1,32 +1,62 @@
+@use "../abstracts" as *;
+
 .contact-form,
 .contact-form__fallback,
 .wpcf7-form {
   display: grid;
-  gap: 24px;
+  grid-template-columns: 17.625rem 17.625rem;
+  grid-template-areas:
+    "name phone"
+    "policy submit"
+    "response response";
+  gap: 1.5rem 1.625rem;
+  align-items: start;
+}
+
+.contact-form .input:first-of-type,
+.wpcf7-form p:nth-of-type(1) {
+  grid-area: name;
+}
+
+.contact-form .input:nth-of-type(2),
+.wpcf7-form p:nth-of-type(2) {
+  grid-area: phone;
+}
+
+.checkbox,
+.wpcf7-acceptance {
+  grid-area: policy;
 }
 
 .contact-form__submit,
 .wpcf7-submit {
+  grid-area: submit;
   justify-self: end;
-  margin-top: -88px;
 }
 
 .wpcf7 form .wpcf7-response-output {
+  grid-area: response;
   margin: 0;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
-@media (max-width: $bp-mobile) {
+@include mobile {
   .contact-form,
   .contact-form__fallback,
   .wpcf7-form {
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "name"
+      "phone"
+      "policy"
+      "submit"
+      "response";
+    gap: 1rem;
   }
 
   .contact-form__submit,
   .wpcf7-submit {
     justify-self: start;
-    margin-top: 0;
-    width: 311px;
+    --button-width: 19.4375rem;
   }
 }

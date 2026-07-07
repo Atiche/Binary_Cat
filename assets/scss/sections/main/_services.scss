@@ -1,60 +1,58 @@
-.services {
-  position: relative;
-  height: 1220px;
-}
+@use "../../abstracts" as *;
 
-.services .container {
-  position: relative;
-  height: 100%;
+.services {
+  min-height: 76.25rem;
 }
 
 .services__title {
-  position: absolute;
-  left: 0;
-  top: 0;
+  max-width: 24rem;
 }
 
 .services__grid {
-  position: relative;
-  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 24.1875rem);
+  column-gap: 13.9375rem;
+  row-gap: 6.25rem;
+  align-items: start;
+  margin-top: 3rem;
 }
 
-.services__grid .service-card:nth-child(1) {
-  left: 0;
-  top: 160px;
+.service-card--primary {
+  grid-column: 1;
 }
 
-.services__grid .service-card:nth-child(2) {
-  left: 610px;
-  top: 208px;
+.service-card--secondary {
+  grid-column: 2;
+  margin-top: 3rem;
 }
 
-.services__grid .service-card:nth-child(3) {
-  left: 203px;
-  top: 662px;
+.service-card--tertiary {
+  grid-column: 1;
+  margin-left: 12.6875rem;
 }
 
-.services__grid .service-card:nth-child(4) {
-  left: 813px;
-  top: 710px;
+.service-card--quaternary {
+  grid-column: 2;
+  margin-top: 3rem;
+  margin-left: 12.6875rem;
 }
 
-@media (max-width: $bp-mobile) {
+@include mobile {
   .services {
-    height: 1906px;
-  }
-
-  .services .container {
-    width: 359px;
-  }
-
-  .services__title {
-    top: 0;
+    min-height: 119.125rem;
   }
 
   .services__grid {
-    display: grid;
-    gap: 48px;
-    padding-top: 58px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+    margin-top: 3.625rem;
+  }
+
+  .service-card--primary,
+  .service-card--secondary,
+  .service-card--tertiary,
+  .service-card--quaternary {
+    grid-column: auto;
+    margin: 0;
   }
 }

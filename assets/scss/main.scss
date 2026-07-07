@@ -1,24 +1,24 @@
-@import "base/variables";
-@import "base/reset";
-@import "base/typography";
-@import "base/layout";
+@use "base/reset";
+@use "base/typography";
+@use "base/layout";
+@use "base/motion";
 
-@import "components/logo";
-@import "components/button";
-@import "components/input";
-@import "components/checkbox";
-@import "components/contactForm";
-@import "components/scrollDown";
-@import "components/serviceCard";
-@import "components/advantageItem";
+@use "components/logo";
+@use "components/button";
+@use "components/input";
+@use "components/checkbox";
+@use "components/contactForm";
+@use "components/scrollDown";
+@use "components/serviceCard";
+@use "components/advantageItem";
 
-@import "layouts/header";
-@import "layouts/footer";
+@use "layouts/header";
+@use "layouts/footer";
 
-@import "sections/main/hero";
-@import "sections/main/intro";
-@import "sections/main/services";
-@import "sections/main/about";
-@import "sections/main/advantages";
-@import "sections/main/contact";
-@import "sections/main/yandexMap";
+@use "sections/main/hero";
+@use "sections/main/intro";
+@use "sections/main/services";
+@use "sections/main/about";
+@use "sections/main/advantages";
+@use "sections/main/contact";
+@use "sections/main/yandexMap";

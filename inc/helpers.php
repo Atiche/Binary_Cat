@@ -30,9 +30,7 @@ function component($componentName, $type = 'components', $args = array(), $subfo
 		return;
 	}
 
-	if (is_array($args) && ! empty($args)) {
-		extract($args, EXTR_SKIP); // phpcs:ignore WordPress.PHP.DontExtract.extract_extract
-	}
+	$args = is_array($args) ? $args : array();
 
 	include $path;
 }
@@ -95,6 +93,45 @@ function getThemeAssetPath($path)
 	return VK_SMART_SERVICE_PATH . '/assets/' . ltrim($path, '/');
 }
 
+function getThemeAssetMap()
+{
+	return array(
+		'logo.header' => 'svg/logo/vk-smart-service-header.svg',
+		'logo.footer' => 'svg/logo/vk-smart-service-footer.svg',
+		'logo.binaryCat' => 'svg/logo/binary-cat.svg',
+		'hero.desktop' => 'images/hero/hero-desktop.jpg',
+		'hero.mobile' => 'images/hero/hero-mobile.jpg',
+		'intro.photo' => 'images/intro/intro-photo.jpg',
+		'about.photo' => 'images/about/about-photo.jpg',
+		'service.logistics' => 'images/services/logistics.jpg',
+		'service.systems' => 'images/services/systems.jpg',
+		'service.equipment' => 'images/services/equipment.jpg',
+		'service.consulting' => 'images/services/consulting.jpg',
+		'icon.address' => 'svg/icons/icon-address.svg',
+		'icon.phone' => 'svg/icons/icon-phone.svg',
+		'icon.email' => 'svg/icons/icon-email.svg',
+		'icon.scrollDown' => 'svg/icons/icon-scroll-down.svg',
+		'icon.checkboxChecked' => 'svg/icons/checkbox-checked.svg',
+		'icon.service.delivery' => 'svg/icons/icon-service-delivery.svg',
+		'icon.service.document' => 'svg/icons/icon-service-document.svg',
+		'icon.service.container' => 'svg/icons/icon-service-container.svg',
+		'icon.service.consulting' => 'svg/icons/icon-service-consulting.svg',
+		'icon.advantage.specialist' => 'svg/icons/icon-advantage-specialist.svg',
+		'icon.advantage.target' => 'svg/icons/icon-advantage-target.svg',
+		'icon.advantage.global' => 'svg/icons/icon-advantage-global.svg',
+		'icon.advantage.network' => 'svg/icons/icon-advantage-network.svg',
+		'icon.advantage.team' => 'svg/icons/icon-advantage-team.svg',
+	);
+}
+
+function getThemeAsset($key, $asUri = true)
+{
+	$assetMap = getThemeAssetMap();
+	$path = isset($assetMap[$key]) ? $assetMap[$key] : ltrim((string) $key, '/');
+
+	return $asUri ? getThemeAssetUri($path) : getThemeAssetPath($path);
+}
+
 function getPrivacyPolicyLink()
 {
 	$customUrl = getThemeField('privacyPolicyUrl', '', 'option');
@@ -113,20 +150,55 @@ function getPrivacyPolicyLink()
 function getDefaultServicesItems()
 {
 	return array(
-		array('title' => 'Управление  логистикой', 'text' => 'Управляем логистикой, оказываем комплексные таможенно-логистические услуги в формате «от двери до двери» разными видами транспорта', 'icon' => 'delivery', 'image' => 'images/services/logistics.jpg'),
-		array('title' => 'Разработка логистичекских систем', 'text' => 'Создаем любые транспортно-логистические схемы по индивидуальному заказу', 'icon' => 'document', 'image' => 'images/services/systems.jpg'),
-		array('title' => 'Поставка оборудования', 'text' => 'Организуем закупку и поставку оборудования и комплектующих разных брендов от запорной регулирующей арматуры и насосного оборудования до запасных частей к гидроуплотнениям высокого давления и кислородным компрессорам', 'icon' => 'container', 'image' => 'images/services/equipment.jpg'),
-		array('title' => 'Консультации', 'text' => 'Консультируем в сфере промышленно-производственной логистики. К услугам наших клиентов — богатый опыт и знания в сфере логистики', 'icon' => 'consulting', 'image' => 'images/services/consulting.jpg'),
+		array('title' => 'Управление логистикой', 'text' => 'Управляем логистикой, оказываем комплексные таможенно-логистические услуги в формате «от двери до двери» разными видами транспорта', 'icon' => 'delivery', 'image' => 'service.logistics', 'layoutVariant' => 'primary'),
+		array('title' => 'Разработка логистических систем', 'text' => 'Создаем любые транспортно-логистические схемы по индивидуальному заказу', 'icon' => 'document', 'image' => 'service.systems', 'layoutVariant' => 'secondary'),
+		array('title' => 'Поставка оборудования', 'text' => 'Организуем закупку и поставку оборудования и комплектующих разных брендов от запорной регулирующей арматуры и насосного оборудования до запасных частей к гидроуплотнениям высокого давления и кислородным компрессорам', 'icon' => 'container', 'image' => 'service.equipment', 'layoutVariant' => 'tertiary'),
+		array('title' => 'Консультации', 'text' => 'Консультируем в сфере промышленно-производственной логистики. К услугам наших клиентов - богатый опыт и знания в сфере логистики', 'icon' => 'consulting', 'image' => 'service.consulting', 'layoutVariant' => 'quaternary'),
 	);
 }
 
 function getDefaultAdvantagesItems()
 {
 	return array(
-		array('title' => 'Индивидуальный подход', 'icon' => 'specialist'),
-		array('title' => 'Гибкие тарифы', 'icon' => 'target'),
-		array('title' => 'Широкая сеть поставщиков в Китае', 'icon' => 'global'),
-		array('title' => 'Возможность реализации логистических проектов за пределами страны', 'icon' => 'network'),
-		array('title' => 'Профессиональная команда с многолетним опытом работы в промышленном секторе', 'icon' => 'team'),
+		array('title' => 'Индивидуальный подход', 'icon' => 'specialist', 'layoutVariant' => 'approach'),
+		array('title' => 'Гибкие тарифы', 'icon' => 'target', 'layoutVariant' => 'rates'),
+		array('title' => 'Широкая сеть поставщиков в Китае', 'icon' => 'global', 'layoutVariant' => 'china'),
+		array('title' => 'Возможность реализации логистических проектов за пределами страны', 'icon' => 'network', 'layoutVariant' => 'projects'),
+		array('title' => 'Профессиональная команда с многолетним опытом работы в промышленном секторе', 'icon' => 'team', 'layoutVariant' => 'team'),
+	);
+}
+
+function getServicesItems()
+{
+	$items = getThemeField('servicesItems', getDefaultServicesItems());
+	$defaults = getDefaultServicesItems();
+
+	foreach ($items as $index => $item) {
+		$fallback = isset($defaults[$index]) ? $defaults[$index] : array();
+		$items[$index] = wp_parse_args(is_array($item) ? $item : array(), $fallback);
+	}
+
+	return $items;
+}
+
+function getAdvantagesItems()
+{
+	$items = getThemeField('advantagesItems', getDefaultAdvantagesItems());
+	$defaults = getDefaultAdvantagesItems();
+
+	foreach ($items as $index => $item) {
+		$fallback = isset($defaults[$index]) ? $defaults[$index] : array();
+		$items[$index] = wp_parse_args(is_array($item) ? $item : array(), $fallback);
+	}
+
+	return $items;
+}
+
+function getFooterContacts()
+{
+	return array(
+		'address' => getThemeField('footerAddress', '682645, Хабаровский край, г. Амурск, Западное шоссе, 18 офис 1', 'option'),
+		'phone' => getThemeField('footerPhone', '+7 (499) 232-22-22', 'option'),
+		'email' => getThemeField('footerEmail', 'dk@vksmartservice.com', 'option'),
 	);
 }

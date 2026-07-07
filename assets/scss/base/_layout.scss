@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .site-wrapper {
   min-height: 100vh;
   overflow-x: hidden;
@@ -5,14 +7,9 @@
 }
 
 .container {
-  width: min(100%, #{$container-width});
-  margin: 0 auto;
-
-  @media (max-width: $bp-mobile) {
-    width: calc(100% - 16px);
-  }
+  @include section-frame;
 }
 
 .page-content {
-  padding: 120px 0;
+  padding-block: clamp(5rem, 8vw, 7.5rem);
 }

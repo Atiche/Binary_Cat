@@ -3,7 +3,7 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 
-$items = getThemeField('advantagesItems', getDefaultAdvantagesItems());
+$items = getAdvantagesItems();
 ?>
 <section class="advantages" id="advantages">
 	<div class="container">

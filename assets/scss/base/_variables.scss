@@ -1,17 +1,1 @@
-$color-text: #100f0d;
-$color-muted: rgba(16, 15, 13, 0.5);
-$color-copy: #333333;
-$color-blue: #4aa0de;
-$color-blue-hover: #17a8e3;
-$color-blue-soft: rgba(74, 160, 222, 0.5);
-$color-panel: #f8f7ff;
-$color-white: #ffffff;
-$color-black: #000000;
-
-$font-family-base: "Suisse Intl", "Arial", sans-serif;
-
-$container-width: 1200px;
-$desktop-width: 1920px;
-$bp-mobile: 600px;
-
-$shadow-blue: 0 4px 8px rgba(74, 160, 222, 0.2);
+@forward "../abstracts";

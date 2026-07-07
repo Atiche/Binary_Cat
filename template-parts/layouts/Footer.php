@@ -3,9 +3,8 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 
-$address = getThemeField('footerAddress', '682645, Хабаровский край, г. Амурск, Западное шоссе, 18 офис 1', 'option');
-$phone = getThemeField('footerPhone', '+7 (499) 232-22-22', 'option');
-$email = getThemeField('footerEmail', 'dk@vksmartservice.com', 'option');
+$contacts = getFooterContacts();
+$phoneHref = 'tel:' . preg_replace('/[^0-9+]/', '', $contacts['phone']);
 ?>
 <div class="site-footer__inner container">
 	<div class="site-footer__form" id="contact">
@@ -20,16 +19,16 @@ $email = getThemeField('footerEmail', 'dk@vksmartservice.com', 'option');
 
 	<address class="site-footer__contacts">
 		<div class="site-footer__contact-item">
-			<img src="<?php echo esc_url(getThemeAssetUri('svg/icons/icon-address.svg')); ?>" alt="">
-			<p><?php echo esc_html($address); ?></p>
+			<img src="<?php echo esc_url(getThemeAsset('icon.address')); ?>" alt="">
+			<p><?php echo esc_html($contacts['address']); ?></p>
 		</div>
 		<div class="site-footer__contact-item">
-			<img src="<?php echo esc_url(getThemeAssetUri('svg/icons/icon-phone.svg')); ?>" alt="">
-			<a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone)); ?>"><?php echo esc_html($phone); ?></a>
+			<img src="<?php echo esc_url(getThemeAsset('icon.phone')); ?>" alt="">
+			<a href="<?php echo esc_url($phoneHref); ?>"><?php echo esc_html($contacts['phone']); ?></a>
 		</div>
 		<div class="site-footer__contact-item">
-			<img src="<?php echo esc_url(getThemeAssetUri('svg/icons/icon-email.svg')); ?>" alt="">
-			<a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
+			<img src="<?php echo esc_url(getThemeAsset('icon.email')); ?>" alt="">
+			<a href="mailto:<?php echo esc_attr($contacts['email']); ?>"><?php echo esc_html($contacts['email']); ?></a>
 		</div>
 	</address>
 
@@ -38,7 +37,7 @@ $email = getThemeField('footerEmail', 'dk@vksmartservice.com', 'option');
 		<a href="<?php echo esc_url(getPrivacyPolicyLink()); ?>">Политика конфиденциальности</a>
 		<span class="site-footer__developer">
 			<span>Разработка сайта:</span>
-			<img src="<?php echo esc_url(getThemeAssetUri('svg/logo/binary-cat.svg')); ?>" alt="Двоичный кот">
+			<img src="<?php echo esc_url(getThemeAsset('logo.binaryCat')); ?>" alt="Двоичный кот">
 		</span>
 	</div>
 </div>

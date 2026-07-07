@@ -1,6 +1,13 @@
+@use "../abstracts" as *;
+
 .logo {
+  --logo-width: 14.4375rem;
+  --logo-height: 4.875rem;
+
   display: inline-block;
   flex: 0 0 auto;
+  width: var(--logo-width);
+  height: var(--logo-height);
   text-decoration: none;
 
   img {
@@ -10,24 +17,19 @@
   }
 }
 
-.logo--header {
-  width: 231px;
-  height: 78px;
-}
-
 .logo--footer {
-  width: 285px;
-  height: 96px;
+  --logo-width: 17.8125rem;
+  --logo-height: 6rem;
 }
 
-@media (max-width: $bp-mobile) {
+@include mobile {
   .logo--header {
-    width: 172px;
-    height: 58px;
+    --logo-width: 10.75rem;
+    --logo-height: 3.625rem;
   }
 
   .logo--footer {
-    width: 184px;
-    height: 62px;
+    --logo-width: 11.5rem;
+    --logo-height: 3.875rem;
   }
 }

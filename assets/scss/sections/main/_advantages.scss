@@ -1,74 +1,62 @@
-.advantages {
-  position: relative;
-  height: 704px;
-}
+@use "../../abstracts" as *;
 
-.advantages .container {
-  position: relative;
-  height: 100%;
+.advantages {
+  min-height: 44rem;
 }
 
 .advantages__title {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 590px;
-  transform: translateX(-50%);
+  width: min(100%, 36.875rem);
+  margin-inline: auto;
   text-align: center;
 }
 
 .advantages__grid {
-  position: relative;
-  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3.5rem 1.25rem;
+  margin-top: 3rem;
 }
 
-.advantages__grid .advantage-item:nth-child(1) {
-  left: 0;
-  top: 160px;
+.advantage-item--approach {
+  grid-column: 1 / span 2;
 }
 
-.advantages__grid .advantage-item:nth-child(2) {
-  left: 407px;
-  top: 160px;
+.advantage-item--rates {
+  grid-column: 3 / span 2;
 }
 
-.advantages__grid .advantage-item:nth-child(3) {
-  left: 813px;
-  top: 160px;
+.advantage-item--china {
+  grid-column: 5 / span 2;
 }
 
-.advantages__grid .advantage-item:nth-child(4) {
-  left: 203px;
-  top: 392px;
+.advantage-item--projects {
+  grid-column: 2 / span 2;
 }
 
-.advantages__grid .advantage-item:nth-child(5) {
-  left: 610px;
-  top: 392px;
+.advantage-item--team {
+  grid-column: 4 / span 2;
 }
 
-@media (max-width: $bp-mobile) {
+@include mobile {
   .advantages {
-    height: 506px;
-  }
-
-  .advantages .container {
-    width: 359px;
-  }
-
-  .advantages__title {
-    width: 359px;
+    min-height: 31.625rem;
   }
 
   .advantages__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 172px);
+    grid-template-columns: repeat(2, minmax(0, 10.125rem));
     justify-content: space-between;
-    gap: 24px 16px;
-    padding-top: 66px;
+    gap: 1.5rem 1rem;
+    margin-top: 2.625rem;
   }
 
-  .advantages__grid .advantage-item:last-child {
+  .advantage-item--approach,
+  .advantage-item--rates,
+  .advantage-item--china,
+  .advantage-item--projects {
+    grid-column: auto;
+  }
+
+  .advantage-item--team {
     grid-column: 1 / -1;
     justify-self: center;
   }
