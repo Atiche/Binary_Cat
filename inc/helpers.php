@@ -35,36 +35,6 @@ function component($componentName, $type = 'components', $args = array(), $subfo
 	include $path;
 }
 
-function getThemeField($fieldName, $default = '', $location = null)
-{
-	if (! function_exists('get_field')) {
-		return $default;
-	}
-
-	$locations = array();
-	if ($location !== null) {
-		$locations[] = $location;
-	} else {
-		if (is_singular()) {
-			$locations[] = get_the_ID();
-		}
-		$frontPageId = get_option('page_on_front');
-		if ($frontPageId) {
-			$locations[] = $frontPageId;
-		}
-		$locations[] = 'option';
-	}
-
-	foreach ($locations as $fieldLocation) {
-		$value = get_field($fieldName, $fieldLocation);
-		if ($value !== false && $value !== null && $value !== '') {
-			return $value;
-		}
-	}
-
-	return $default;
-}
-
 function getThemeImage($image, $size = 'full', $attrs = array())
 {
 	if (is_numeric($image)) {
@@ -99,6 +69,7 @@ function getThemeAssetMap()
 		'logo.header' => 'svg/logo/vk-smart-service-header.svg',
 		'logo.footer' => 'svg/logo/vk-smart-service-footer.svg',
 		'logo.binaryCat' => 'svg/logo/binary-cat.svg',
+		'logo.favicon' => 'svg/logo/favicon.svg',
 		'hero.desktop' => 'images/hero/hero-desktop.jpg',
 		'hero.mobile' => 'images/hero/hero-mobile.jpg',
 		'intro.photo' => 'images/intro/intro-photo.jpg',
@@ -134,17 +105,26 @@ function getThemeAsset($key, $asUri = true)
 
 function getPrivacyPolicyLink()
 {
-	$customUrl = getThemeField('privacyPolicyUrl', '', 'option');
-	if ($customUrl !== '') {
-		return $customUrl;
-	}
-
 	if (function_exists('get_privacy_policy_url')) {
 		$wpUrl = get_privacy_policy_url();
 		return $wpUrl !== '' ? $wpUrl : '#';
 	}
 
 	return '#';
+}
+
+function getHeaderPhone()
+{
+	return '+7 (499) 232-22-22';
+}
+
+function getHeaderMenu()
+{
+	return array(
+		array('label' => 'Услуги и решения', 'url' => '#services'),
+		array('label' => 'О компании', 'url' => '#about'),
+		array('label' => 'Наши преимущества', 'url' => '#advantages'),
+	);
 }
 
 function getDefaultServicesItems()
@@ -170,35 +150,19 @@ function getDefaultAdvantagesItems()
 
 function getServicesItems()
 {
-	$items = getThemeField('servicesItems', getDefaultServicesItems());
-	$defaults = getDefaultServicesItems();
-
-	foreach ($items as $index => $item) {
-		$fallback = isset($defaults[$index]) ? $defaults[$index] : array();
-		$items[$index] = wp_parse_args(is_array($item) ? $item : array(), $fallback);
-	}
-
-	return $items;
+	return getDefaultServicesItems();
 }
 
 function getAdvantagesItems()
 {
-	$items = getThemeField('advantagesItems', getDefaultAdvantagesItems());
-	$defaults = getDefaultAdvantagesItems();
-
-	foreach ($items as $index => $item) {
-		$fallback = isset($defaults[$index]) ? $defaults[$index] : array();
-		$items[$index] = wp_parse_args(is_array($item) ? $item : array(), $fallback);
-	}
-
-	return $items;
+	return getDefaultAdvantagesItems();
 }
 
 function getFooterContacts()
 {
 	return array(
-		'address' => getThemeField('footerAddress', '682645, Хабаровский край, г. Амурск, Западное шоссе, 18 офис 1', 'option'),
-		'phone' => getThemeField('footerPhone', '+7 (499) 232-22-22', 'option'),
-		'email' => getThemeField('footerEmail', 'dk@vksmartservice.com', 'option'),
+		'address' => '682645, Хабаровский край, г. Амурск, Западное шоссе, 18 офис 1',
+		'phone' => '+7 (499) 232-22-22',
+		'email' => 'dk@vksmartservice.com',
 	);
 }

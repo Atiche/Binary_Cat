@@ -7,6 +7,12 @@
   }
 }
 
+@mixin tablet {
+  @media (min-width: calc($bp-phone + 0.0625rem)) and (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
 @mixin section-frame {
   width: min(100%, $container-desktop);
   margin-inline: auto;

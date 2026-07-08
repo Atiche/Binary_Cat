@@ -3,8 +3,8 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 
-$title = getThemeField('contactTitle', 'Напишите нам');
-$text = getThemeField('contactText', 'Заполните форму ниже и мы свяжемся с вами в ближайшее время');
+$title = 'Напишите нам';
+$text = 'Заполните форму ниже и мы свяжемся с вами в ближайшее время';
 ?>
 <section class="contact" id="contact">
 	<div class="contact__inner container">

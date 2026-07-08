@@ -3,17 +3,9 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 
-$phone = getThemeField('headerPhone', '+7 (499) 232-22-22', 'option');
+$phone = getHeaderPhone();
 $phoneHref = 'tel:' . preg_replace('/[^0-9+]/', '', $phone);
-$menu = getThemeField(
-	'headerMenu',
-	array(
-		array('label' => 'Услуги и решения', 'url' => '#services'),
-		array('label' => 'О компании', 'url' => '#about'),
-		array('label' => 'Наши преимущества', 'url' => '#advantages'),
-	),
-	'option'
-);
+$menu = getHeaderMenu();
 ?>
 <div class="site-header__inner container">
 	<?php component('Logo', 'components', array('variant' => 'header')); ?>

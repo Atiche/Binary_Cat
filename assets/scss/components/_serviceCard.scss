@@ -1,11 +1,15 @@
 @use "../abstracts" as *;
 
 .service-card {
-  position: relative;
   width: min(100%, 24.1875rem);
 }
 
+.service-card__media-wrap {
+  position: relative;
+}
+
 .service-card__media {
+  display: block;
   width: 100%;
   aspect-ratio: 387 / 226;
   border-radius: $radius-md;
@@ -14,12 +18,14 @@
 
 .service-card__icon {
   position: absolute;
-  top: 11.125rem;
-  right: -3rem;
+  right: 2rem;
+  bottom: 0;
+  z-index: 1;
   display: grid;
   place-items: center;
   width: 6rem;
   aspect-ratio: 1;
+  transform: translateY(50%);
   border-radius: 50%;
   background: $color-white;
   box-shadow: 0 0 0 3.875rem rgba(74, 160, 222, 0.04), 0 0 0 0.75rem rgba(74, 160, 222, 0.08), $shadow-blue;
@@ -29,11 +35,6 @@
     aspect-ratio: 1;
     object-fit: contain;
   }
-}
-
-.service-card__icon--container {
-  right: auto;
-  left: 8.125rem;
 }
 
 .service-card__title {
@@ -58,14 +59,8 @@
   }
 
   .service-card__icon {
-    top: 11.125rem;
-    right: 1rem;
+    right: 2rem;
     width: 5rem;
-  }
-
-  .service-card__icon--container {
-    right: 1rem;
-    left: auto;
   }
 
   .service-card__title {

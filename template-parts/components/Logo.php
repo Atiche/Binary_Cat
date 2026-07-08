@@ -11,7 +11,7 @@ $variant = $args['variant'];
 $defaultLogo = $variant === 'footer'
 	? getThemeAsset('logo.footer')
 	: getThemeAsset('logo.header');
-$logo = $args['logo'] !== '' ? $args['logo'] : getThemeField('headerLogo', $defaultLogo, 'option');
+$logo = $args['logo'] !== '' ? $args['logo'] : $defaultLogo;
 ?>
 <a class="logo logo--<?php echo esc_attr($variant); ?>" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('VK Smart Service', 'vk-smart-service'); ?>">
 	<?php if (is_array($logo) || is_numeric($logo)) : ?>

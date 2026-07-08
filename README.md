@@ -4,7 +4,7 @@
 
 ## Структура
 
-- `inc/` - setup, enqueue, helpers, Contact Form 7, ACF options.
+- `inc/` - setup, enqueue, helpers, optional Contact Form 7 integration.
 - `template-parts/components/` - PascalCase UI-компоненты.
 - `template-parts/sections/main/` - PascalCase секции главной страницы.
 - `template-parts/layouts/` - Header/Footer.
@@ -24,12 +24,11 @@ WordPress будет доступен на `http://localhost:8080`, phpMyAdmin -
 
 ## Плагины
 
-Установить и активировать:
+Опционально установить и активировать:
 
-- Advanced Custom Fields
 - Contact Form 7
 
-В ACF options можно задать контакты, тексты секций, shortcode CF7 и iframe Яндекс.Карты. Если поля не заполнены, тема использует fallback-контент из макета.
+Контент лендинга хранится в шаблонах и helper-функциях темы. Плагин полей не требуется.
 
 ## Contact Form 7
 
@@ -42,8 +41,8 @@ WordPress будет доступен на `http://localhost:8080`, phpMyAdmin -
 [submit "Перезвоните мне"]
 ```
 
-Shortcode формы вставить в ACF поле `contactFormShortcode`.
+По умолчанию тема показывает fallback-форму. Чтобы вывести форму Contact Form 7, задайте shortcode через константу `VK_SMART_SERVICE_CF7_SHORTCODE` или фильтр `vk_smart_service_cf7_shortcode`.
 
 ## Карта
 
-Карта вставляется перед footer через ACF поле `mapEmbedCode`. Ожидается iframe из конструктора Яндекс.Карт.
+Карта вставляется перед footer как статический iframe в `template-parts/sections/main/YandexMap.php`.

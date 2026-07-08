@@ -17,7 +17,3 @@ require_once VK_SMART_SERVICE_PATH . '/inc/setup.php';
 require_once VK_SMART_SERVICE_PATH . '/inc/enqueue.php';
 require_once VK_SMART_SERVICE_PATH . '/inc/helpers.php';
 require_once VK_SMART_SERVICE_PATH . '/inc/cf7.php';
-
-if (class_exists('ACF')) {
-	require_once VK_SMART_SERVICE_PATH . '/inc/acf/acfConfig.php';
-}

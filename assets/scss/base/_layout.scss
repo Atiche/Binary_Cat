@@ -13,3 +13,9 @@
 .page-content {
   padding-block: clamp(5rem, 8vw, 7.5rem);
 }
+
+@include tablet {
+  .site-main > section + section {
+    margin-top: 4rem;
+  }
+}

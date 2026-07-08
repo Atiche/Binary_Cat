@@ -11,7 +11,11 @@ if (! defined('ABSPATH')) {
 
 function getCf7FormShortcode($default = '')
 {
-	return getThemeField('contactFormShortcode', $default, 'option');
+	$shortcode = defined('VK_SMART_SERVICE_CF7_SHORTCODE')
+		? VK_SMART_SERVICE_CF7_SHORTCODE
+		: $default;
+
+	return apply_filters('vk_smart_service_cf7_shortcode', $shortcode);
 }
 
 function vkSmartServiceIsCf7Active()
