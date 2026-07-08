@@ -3,43 +3,79 @@
 .contact-form,
 .contact-form__fallback,
 .wpcf7-form {
-  display: grid;
-  grid-template-columns: 17.625rem 17.625rem;
-  grid-template-areas:
-    "name phone"
-    "policy submit"
-    "response response";
-  gap: 1.5rem 1.625rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: min(100%, 36.875rem);
+  margin-bottom: 66px;
+}
+
+.contact-form .input,
+.wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-acceptance) {
+  --input-width: 100%;
+  width: 100%;
 }
 
 .contact-form .input:first-of-type,
 .wpcf7-form p:nth-of-type(1) {
-  grid-area: name;
+  order: 1;
 }
 
 .contact-form .input:nth-of-type(2),
 .wpcf7-form p:nth-of-type(2) {
-  grid-area: phone;
+  order: 2;
+}
+
+.contact-form__actions,
+.wpcf7-form p:has(.wpcf7-acceptance) {
+  order: 3;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact-form__actions .checkbox,
+.wpcf7-form p:has(.wpcf7-acceptance) .wpcf7-acceptance {
+  flex: 1 1 auto;
+}
+
+.contact-form__actions .contact-form__submit,
+.wpcf7-form p:has(.wpcf7-acceptance) .wpcf7-submit {
+  flex: 0 0 auto;
+}
+
+.wpcf7-form p:has(.wpcf7-submit):not(:has(.wpcf7-acceptance)) {
+  order: 4;
 }
 
 .wpcf7-form p {
   margin: 0;
 }
 
+.wpcf7-form-control-wrap {
+  display: block;
+  width: 100%;
+}
+
 .checkbox,
 .wpcf7-acceptance {
-  grid-area: policy;
+  flex: 1 1 auto;
 }
 
 .contact-form__submit,
 .wpcf7-submit {
-  grid-area: submit;
-  justify-self: end;
+  flex: 0 0 auto;
+}
+
+.contact-form__fallback .input {
+  flex: 0 0 auto;
 }
 
 .wpcf7 form .wpcf7-response-output {
-  grid-area: response;
+  order: 5;
   margin: 0;
   border-radius: 0.75rem;
 }
@@ -48,19 +84,16 @@
   .contact-form,
   .contact-form__fallback,
   .wpcf7-form {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "name"
-      "phone"
-      "policy"
-      "submit"
-      "response";
     gap: 1rem;
   }
 
   .contact-form__submit,
   .wpcf7-submit {
-    justify-self: start;
     --button-width: 19.4375rem;
+  }
+
+  .contact-form__actions,
+  .wpcf7-form p:has(.wpcf7-acceptance) {
+    gap: 1rem;
   }
 }
