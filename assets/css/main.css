@@ -418,11 +418,62 @@ a:focus-visible {
   text-decoration: underline;
 }
 
+.wpcf7-acceptance {
+  max-width: 17.625rem;
+  color: #0e1214;
+  font-size: 0.75rem;
+  line-height: 1.333;
+}
+
+.wpcf7-acceptance .wpcf7-list-item {
+  margin: 0;
+}
+
+.wpcf7-acceptance label {
+  display: grid;
+  grid-template-columns: 1.875rem minmax(0, 14.75rem);
+  gap: 1rem;
+  align-items: start;
+  cursor: pointer;
+}
+
+.wpcf7-acceptance input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wpcf7-acceptance label::before {
+  content: "";
+  width: 1.875rem;
+  aspect-ratio: 1;
+  border: 0.125rem solid #100f0d;
+  border-radius: 0.125rem;
+  background: #ffffff;
+}
+
+.wpcf7-acceptance label:has(input[type=checkbox]:checked)::before {
+  border: 0;
+  background: #4aa0de url("../svg/icons/checkbox-checked.svg") center/100% 100% no-repeat;
+}
+
+.wpcf7-acceptance .wpcf7-list-item-label {
+  min-width: 0;
+}
+
+.wpcf7-acceptance a {
+  text-decoration: underline;
+}
+
 @media (max-width: 48rem) {
-  .checkbox {
+  .checkbox,
+  .wpcf7-acceptance {
+    max-width: 19.4375rem;
+  }
+  .checkbox,
+  .wpcf7-acceptance label {
     grid-template-columns: 1.875rem minmax(0, 1fr);
     gap: 0.5rem;
-    max-width: 19.4375rem;
   }
 }
 .contact-form,
@@ -443,6 +494,10 @@ a:focus-visible {
 .contact-form .input:nth-of-type(2),
 .wpcf7-form p:nth-of-type(2) {
   grid-area: phone;
+}
+
+.wpcf7-form p {
+  margin: 0;
 }
 
 .checkbox,
